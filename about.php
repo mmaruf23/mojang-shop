@@ -1,0 +1,82 @@
+<?php
+
+//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();} for php 5.4 and above
+
+if(session_id() == '' || !isset($_SESSION)){session_start();}
+
+
+?>
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us || Mojang Shop</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="index.php">Mojang Shop</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+      <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><a href="about.php">About</a></li>
+          <li><a href="products.php">Products</a></li>
+          <li><a href="cart.php">View Cart</a></li>
+          <li><a href="orders.php">My Orders</a></li>
+          <li><a href="contact.php">Contact</a></li>
+          <?php
+    
+          if(isset($_SESSION['username'])){
+            echo '<li><a href="account.php">My Account</a></li>';
+            echo '<li><a href="logout.php">Log Out</a></li>';
+          }
+          else{
+            echo '<li><a href="login.php">Log In</a></li>';
+            echo '<li><a href="register.php">Register</a></li>';
+          }
+          ?>
+        </ul>
+      </section>
+    </nav>
+
+
+
+
+    <div class="row" style="margin-top:30px;">
+      <div class="small-12">
+      <h1>Mojang Toy Shop</h1>
+        <p><strong>Mojang Toy Shop</strong> adalah proyek situs E-Commerce yang dirancang khusus untuk menampilkan berbagai macam mainan. Semua produk yang tercantum hanya sebagai contoh dan tidak benar-benar dijual. Proyek ini memberikan gambaran nyata tentang bagaimana implementasi situs e-commerce dalam dunia nyata. Jika Anda menyukai tampilan situs ini, jangan ragu untuk mengunjungi <a href="https://example.com">Tech Barrack Solutions</a> untuk proyek serupa.</p>
+
+      <h2>Mengapa Mojang?</h2>
+        <p>Saya terinspirasi oleh dunia penuh warna dan imajinasi anak-anak, yang tak terbatas oleh batasan. Mojang mencerminkan semangat kreativitas dan petualangan tanpa akhir dalam setiap mainan, yang mendorong anak-anak untuk mengeksplorasi, belajar, dan bersenang-senang. Nama ini datang secara spontan, dan saya langsung menyukainya!</p>
+
+        <footer>
+           <p style="text-align:center; font-size:0.8em;">&copy; Mojang Toy Shop. All Rights Reserved.</p>
+        </footer>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
